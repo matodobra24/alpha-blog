@@ -7,6 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= link_to "Home", articles_path %>
+  <%= link_to "Create New Article", new_article_path %>
   <% flash.each do |name, msg| %>
     <ul>
       <li><%= msg %></li>
