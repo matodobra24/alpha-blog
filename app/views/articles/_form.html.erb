@@ -1,3 +1,5 @@
+<div class="col-md-12">
+
 <% if @article.errors.any? %>
 <h2>The Following Errors Prevented The Article From Being Created</h2>
     <ul>
@@ -8,20 +10,30 @@
 <% end %>
 
  <!--Need to initiate @article in Articles Controller else page wont know what @articles is!!! -->
-<%= form_for @article do |f| %>
-    <p>
-        <%= f.label :title %><br>
-        <%= f.text_field :title %>
-    </p>
-    <p>
-        <%= f.label :description %><br>
-        <%= f.text_area :description %>
-    </p>
-    <p>
-        <%= f.submit %>
-    </p>
+<%= form_for(@article, :html => {class: 'form-horizontal', role: 'form'})  do |f| %>
+    <div class="form-group">
+        <div class="col-xs-2 control-label">
+            <%= f.label :title %>
+        </div>
+        <div class="col-xs-10">
+            <%= f.text_field :title, class: 'form-control', placeholder: 'Title of Article', autofocus: true %>
+        </div>
+    </div>
+ <div class="form-group">
+        <div class="col-xs-2 control-label">
+            <%= f.label :description %><br>
+        </div>
+        <div class="col-xs-10">
+            <%= f.text_area :description, rows: 10, class:'form-control', placeholder: 'Article Content', autofocus: true %>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4 col-sm-offset-4">
+            <%= f.submit class: 'btn btn-primary btn-lg' %>
+            <%= link_to "Cancel Article", articles_path, class: 'btn btn-danger text-center btn-lg'%>
+        </div>
+    </div>
 
 <% end %>
     
-    
-    
+</div>
