@@ -8,16 +8,15 @@
 </head>
 <body>
 <%= render 'layouts/navigation' %>
-  <div class="row">
+
     <div class="container">
-      <% flash.each do |name, msg| %>
-        <ul>
-          <li><%= msg %></li>
-        </ul>
-      <% end %>
+      
+      <%= render 'layouts/messages' %>
+      
       <%= yield %>
+      
     </div>
-  </div>
+
 
 <%= render 'layouts/footer' %>
 </body>
